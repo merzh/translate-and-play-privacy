@@ -1,14 +1,411 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Translate&Play: Learn English</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Translate & Play - Learn English Through Games</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #6B5CE7 0%, #8B7CF7 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .app-icon {
+            width: 120px;
+            height: 120px;
+            background: white;
+            border-radius: 28px;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            opacity: 0.95;
+            margin-bottom: 20px;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .store-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .store-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #000;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .store-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .store-btn svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        .store-btn-text {
+            text-align: left;
+        }
+
+        .store-btn-text small {
+            display: block;
+            font-size: 0.7rem;
+            opacity: 0.8;
+        }
+
+        .store-btn-text span {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 20px;
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: #333;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #6B5CE7 0%, #8B7CF7 100%);
+            border-radius: 20px;
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .feature-card p {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            padding: 100px 20px;
+            background: white;
+        }
+
+        .steps {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .step {
+            text-align: center;
+            max-width: 280px;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #6B5CE7 0%, #8B7CF7 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 25px;
+        }
+
+        .step h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .step p {
+            color: #666;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, #6B5CE7 0%, #8B7CF7 100%);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 40px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a2e;
+            color: #888;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 20px;
+                min-height: auto;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .tagline {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .features, .how-it-works, .cta {
+                padding: 60px 20px;
+            }
+
+            .steps {
+                gap: 40px;
+            }
+
+            .cta h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <h1>Translate&Play</h1>
-  <p>Learn English by playing.</p>
-  <p>
-    <a href="privacy.html">Privacy Policy</a>
-  </p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Translate & Play</h1>
+            <p class="tagline">Learn English the Fun Way</p>
+            <p class="hero-description">
+                Master English through exciting translation challenges. Build sentences word-by-word,
+                beat the clock, and watch your language skills soar with every game.
+            </p>
+            <div class="store-buttons">
+                <a href="https://play.google.com/store/apps/details?id=com.translateplay.app" class="store-btn">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 010 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.802 8.99l-2.303 2.303-8.635-8.635z"/>
+                    </svg>
+                    <div class="store-btn-text">
+                        <small>Get it on</small>
+                        <span>Google Play</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Why You'll Love It</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <span>A</span>
+                    </div>
+                    <h3>Word-by-Word Translation</h3>
+                    <p>Build sentences one word at a time. Understand grammar naturally as you piece together real English phrases.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <span>&#9203;</span>
+                    </div>
+                    <h3>Beat the Clock</h3>
+                    <p>Race against time to sharpen your reflexes. The faster you translate, the more points you earn.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <span>&#9733;</span>
+                    </div>
+                    <h3>Earn Rewards</h3>
+                    <p>Collect stars, crystals, and maintain streaks. Stay motivated with achievements and daily bonuses.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <span>&#8599;</span>
+                    </div>
+                    <h3>Progressive Levels</h3>
+                    <p>Start from A1 basics and advance to B2. The difficulty adapts as your skills improve.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <span>&#128161;</span>
+                    </div>
+                    <h3>Smart Hints</h3>
+                    <p>Stuck on a tricky word? Use hints to keep moving forward without losing your momentum.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <span>&#127919;</span>
+                    </div>
+                    <h3>Game-Based Learning</h3>
+                    <p>Forget boring textbooks. Learn through play with engaging challenges that make practice addictive.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>See the Sentence</h3>
+                    <p>A sentence appears in your native language. Your mission: translate it to English.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Pick the Words</h3>
+                    <p>Select words in the correct order to build the English translation. The clock is ticking!</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Level Up</h3>
+                    <p>Earn stars, unlock new levels, and track your progress as you become fluent.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Play & Learn?</h2>
+            <p>Join thousands of learners mastering English through fun translation games.</p>
+            <div class="store-buttons">
+                <a href="https://play.google.com/store/apps/details?id=com.translateplay.app" class="store-btn">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 010 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.802 8.99l-2.303 2.303-8.635-8.635z"/>
+                    </svg>
+                    <div class="store-btn-text">
+                        <small>Get it on</small>
+                        <span>Google Play</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Translate & Play. All rights reserved.</p>
+    </footer>
 </body>
 </html>
